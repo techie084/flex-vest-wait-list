@@ -1,38 +1,69 @@
 <script lang="ts">
-	// let submit: string = $state('yes');
 </script>
 
-<div class="glass flex w-full max-w-md justify-center rounded-2xl p-6 shadow-2xl">
-	<form id="waitlistForm" class="w-full space-y-4">
-		<div class="mb-2">
-			<!-- svelte-ignore a11y_label_has_associated_control -->
-			<label class="mb-1 block text-xs text-slate-300">Full name</label>
+<div class="glass flex w-full max-w-md justify-center rounded-2xl p-8 shadow-2xl">
+	<form id="waitlistForm" class="flex w-full flex-col gap-3 space-y-4" method="post">
+		<div>
 			<div class="flex items-center rounded-lg bg-black/40 px-3 py-2">
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="24"
+					height="24"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					class="lucide lucide-user-icon lucide-user"
+					><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" /><circle
+						cx="12"
+						cy="7"
+						r="4"
+					/></svg
+				>
 				<input
 					name="name"
 					type="text"
 					required
-					class="ml-3 w-full bg-transparent outline-none placeholder:text-slate-400"
+					class="ml-3 w-full border-none bg-transparent outline-none"
 					placeholder="Full name"
 				/>
 			</div>
 		</div>
 
-		<div class="mb-2">
-			<!-- svelte-ignore a11y_label_has_associated_control -->
-			<label class="mb-1 block text-xs text-slate-300">Email address</label>
+		<div>
 			<div class="flex items-center rounded-lg bg-black/40 px-3 py-2">
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="24"
+					height="24"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					class="lucide lucide-mail-icon lucide-mail"
+					><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" /><rect
+						x="2"
+						y="4"
+						width="20"
+						height="16"
+						rx="2"
+					/></svg
+				>
 				<input
 					name="email"
 					type="email"
 					required
-					class="ml-3 w-full bg-transparent outline-none placeholder:text-slate-400"
+					class="ml-3 w-full border-none bg-transparent outline-none"
 					placeholder="Email address"
 				/>
 			</div>
 		</div>
 
-		<div class="mt-4">
+		<div>
 			<button
 				type="submit"
 				class="inline-flex w-full items-center justify-center gap-3 rounded-lg bg-gradient-to-r from-green-400 to-green-500 py-3 font-semibold text-black transition hover:from-green-500 hover:to-green-900"

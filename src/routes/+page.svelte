@@ -3,7 +3,7 @@
 	// import NotificationModal from '$lib/components/notification-modal.svelte';
 </script>
 
-<header class="mx-auto flex max-w-7xl items-center justify-between px-6 py-6">
+<header class="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 md:justify-center">
 	<div class="flex items-center bg-black p-2">
 		<span class="text-xs font-semibold tracking-wide text-shadow-gray-600 sm:text-xl"
 			>Flex-Vest <span class="text-green-600">| Sell Global</span></span
@@ -11,12 +11,15 @@
 	</div>
 </header>
 
+<!-- <NotificationModal /> -->
+
+<!-- Main Components -->
 <main class=" mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-10">
 	<!-- text container -->
 	<section class="max-w-full px-4 md:px-1">
 		<h1 class="w-full text-5xl leading-tight font-extrabold text-wrap drop-shadow-md sm:text-5xl">
 			Join the waitlist today <br />
-			<span class="bg-gradient-to-r from-gray-300 to-green-400 bg-clip-text text-transparent"
+			<span class="bg-gradient-to-r from-gray-300 to-green-600 bg-clip-text text-transparent"
 				>to Showcase your Global Talent</span
 			>
 		</h1>
@@ -32,11 +35,11 @@
 				<img
 					src="/avatar-1.webp"
 					alt="avatar"
-					class="h-12 w-12 rounded-full border-2 border-green-400 shadow-lg"
+					class="h-12 w-12 rounded-full border-2 border-green-600 shadow-lg"
 				/>
 				<div>
-					<div class="text-sm text-slate-200">Early access</div>
-					<div class="text-sm text-slate-300">Join thousands of creators</div>
+					<div class="text-sm text-slate-200">Gain early access and</div>
+					<div class="text-sm text-slate-200">Join thousands of creators</div>
 				</div>
 			</div>
 		</div>
@@ -47,7 +50,7 @@
 </main>
 
 <!-- floating memoji top-right -->
-<div class="fixed top-24 right-6 hidden md:block">
+<!-- <div class="fixed top-24 right-6 hidden md:block">
 	<div class="relative">
 		<img
 			src="/avatar-1.webp"
@@ -60,5 +63,4 @@
 			✓
 		</div>
 	</div>
-</div>
-<!-- <NotificationModal /> -->
+</div> -->

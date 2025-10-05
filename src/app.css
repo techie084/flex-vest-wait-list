@@ -11,8 +11,14 @@
 ),
  */
 body {
-	background: linear-gradient(180deg, #030312 10%, #071226 40%, #0b1720 100%);
-	background-repeat: no-repeat;
+	background:
+		radial-gradient(
+			600px 350px at 30% 40%,
+			rgba(22, 163, 74, 0.18),
+			rgba(59, 130, 246, 0.12),
+			transparent 40%
+		),
+		linear-gradient(180deg, #030312 10%, #071226 40%, #0b1720 100%), center, no-repeat;
 	color: whitesmoke;
 	font-family:
 		'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana,
@@ -34,5 +40,5 @@ body {
 .glass {
 	background: rgba(10, 13, 18, 0.6);
 	backdrop-filter: blur(8px) saturate(1.1);
-	border: 1px solid rgba(255, 255, 255, 0.04);
+	/* border: 1px solid rgba(255, 255, 255, 0.04); */
 }
