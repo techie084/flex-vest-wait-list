@@ -1,8 +1,30 @@
 <script lang="ts">
+	let name: string = '';
+	let email: string = '';
+	let message: string = '';
+
+	const jonWaitlist = async () => {
+		try {
+			const res = await fetch('/api/waitlist', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({ name, email })
+			});
+
+			const data = await res.json();
+			message = data.message || data.error;
+		} catch (error) {
+			message = 'Something went wrong, please try again!';
+		}
+	};
 </script>
 
 <div class="glass flex w-full max-w-md justify-center rounded-2xl p-8 shadow-2xl">
-	<form id="waitlistForm" class="flex w-full flex-col gap-3 space-y-4" method="post">
+	<form
+		id="waitlistForm"
+		class="flex w-full flex-col gap-3 space-y-4"
+		on:submit|preventDefault={jonWaitlist}
+	>
 		<div>
 			<div class="flex items-center rounded-lg bg-black/40 px-3 py-2">
 				<svg
@@ -23,7 +45,7 @@
 					/></svg
 				>
 				<input
-					name="name"
+					{name}
 					type="text"
 					required
 					class="ml-3 w-full border-none bg-transparent outline-none"
@@ -54,7 +76,7 @@
 					/></svg
 				>
 				<input
-					name="email"
+					name={email}
 					type="email"
 					required
 					class="ml-3 w-full border-none bg-transparent outline-none"
@@ -84,9 +106,11 @@
 				>
 			</button>
 		</div>
-
-		<!-- <p class="mt-3 text-center text-xs text-slate-400">
-						We’ll only send a few updates — no spam. By joining you agree to our terms.
-					</p> -->
 	</form>
+	<p class="mt-3 text-sm text-gray-600">
+		{message}
+	</p>
+	<!-- {#if data.success}
+		<p>{data.message}</p>
+	{/if} -->
 </div>

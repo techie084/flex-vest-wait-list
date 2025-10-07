@@ -27,15 +27,6 @@ body {
 	font-style: normal;
 }
 
-#app {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	font-size: 16px;
-	padding: 1rem;
-	margin: 0 auto;
-}
-
 /* subtle glass effect for the card inside thee form components */
 .glass {
 	background: rgba(10, 13, 18, 0.6);

@@ -10,6 +10,6 @@
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
-<main id="app" class="">
+<main id="app" class="center mx-auto flex flex-col items-center p-4">
 	{@render children?.()}
 </main>
