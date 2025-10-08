@@ -1,9 +1,12 @@
 <script lang="ts">
+	import { toast } from 'svoast';
 	let name: string = '';
 	let email: string = '';
 	let message: string = '';
+	let loading: boolean = false;
 
 	const jonWaitlist = async () => {
+		loading = true;
 		try {
 			const res = await fetch('/api/waitlist', {
 				method: 'POST',
@@ -12,9 +15,18 @@
 			});
 
 			const data = await res.json();
-			message = data.message || data.error;
-		} catch (error) {
-			message = 'Something went wrong, please try again!';
+
+			if (res.ok) toast.success('Success! You have been added to the waitlist. 🎉');
+			else {
+				loading = false;
+				toast.error(data.message || data.error);
+			}
+		} catch (error: string | any) {
+			toast.error('Something went wrong, please try again! Check your network');
+		} finally {
+			loading = false;
+			name = '';
+			email = '';
 		}
 	};
 </script>
@@ -88,9 +100,10 @@
 		<div>
 			<button
 				type="submit"
+				disabled={loading}
 				class="inline-flex w-full items-center justify-center gap-3 rounded-lg bg-gradient-to-r from-green-400 to-green-500 py-3 font-semibold text-black transition hover:from-green-500 hover:to-green-900"
 			>
-				<span>Join the waitlist</span>
+				<span>{loading ? 'Joining...' : 'Join the waitlist'}</span>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					class="h-5 w-5"
@@ -107,10 +120,8 @@
 			</button>
 		</div>
 	</form>
-	<p class="mt-3 text-sm text-gray-600">
-		{message}
-	</p>
-	<!-- {#if data.success}
-		<p>{data.message}</p>
-	{/if} -->
+
+	{#if message}
+		<p class="mt-3 text-sm text-gray-600">{message}</p>
+	{/if}
 </div>

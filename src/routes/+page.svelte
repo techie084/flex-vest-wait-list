@@ -1,9 +1,8 @@
 <script>
-	import Form from './form.svelte';
-	// import NotificationModal from '$lib/components/notification-modal.svelte';
+	import Form from '../lib/components/form.svelte';
 </script>
 
-<header class="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 md:justify-center">
+<header class="max-w-8xl mx-auto flex items-center justify-between px-6 py-6 md:justify-center">
 	<div class="flex items-center bg-black p-2">
 		<span class="text-xs font-semibold tracking-wide text-shadow-gray-600 sm:text-xl"
 			>Flex-Vest <span class="text-green-600">| Save in stable coins</span></span
@@ -11,10 +10,8 @@
 	</div>
 </header>
 
-<!-- <NotificationModal /> -->
-
 <!-- Main Components -->
-<main class=" mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-10">            
+<main class=" mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-10">
 	<!-- text container -->
 	<section class="max-w-full px-4 md:px-1">
 		<h1
@@ -43,7 +40,7 @@
 		</div>
 	</section>
 
-	<!-- form section -->
+	<!-- Form Section -->
 	<Form />
 </main>
 

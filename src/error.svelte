@@ -1,5 +1,2 @@
 <script>
 </script>
-
-
-svelte
