@@ -11,7 +11,7 @@
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
-<main id="app" class="center mx-auto flex flex-col items-center p-4">
-	<Toasts position="top-center" />
+<main class="center mx-auto flex flex-col items-center p-4">
+	<Toasts />
 	{@render children?.()}
 </main>

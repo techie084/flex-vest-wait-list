@@ -1,12 +1,13 @@
 import { json } from '@sveltejs/kit';
 import { Client } from '@notionhq/client';
+import type { RequestHandler } from '@sveltejs/kit';
 import { Resend } from 'resend';
 import waitListEmail from '$lib/emails/waitlistEmail.js';
 
 const notion = new Client({ auth: process.env.NOTION_TOKEN });
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export const POST = async ({ request }) => {
+export const POST: RequestHandler = async ({ request }) => {
 	try {
 		const { name, email } = await request.json();
 
@@ -25,14 +26,10 @@ export const POST = async ({ request }) => {
 		});
 
 		await resend.emails.send({
-			from: 'wsdoommathew08@gmail.com',
+			from: 'wisdommatthew08@gmail.com',
 			to: email,
-			subject: 'Welcome to the Waitlist',
+			subject: 'Welcome to the Waitlist 🥳',
 			html: waitListEmail
-			// html: `<p>Hey there, ${name}</p>
-			//   <p>Thanks for joining the waitlist! We'll let you know when we launch.</p>
-			//   <p>- The Team 🚀</p>
-			// `
 		});
 
 		return json({ message: 'Added  to the waitlist', success: true });
@@ -42,18 +39,7 @@ export const POST = async ({ request }) => {
 	}
 };
 
-
-// export async function POST({ request }) {
-// 	const formData = await request.formData();
-
-// 	const name = formData.get('name') as string;
-// 	const email = formData.get('email') as string;
-
-// 	console.log('Name', name);
-// 	console.log('Email', email);
-
-// 	return new Response(
-// 		JSON.stringify({ success: true, message: 'Form submitted successfully ' }),
-// 		{ headers: { 'Content-Type': 'application/json' } }
-// 	);
-// }
+// html: `<p>Hey there, ${name}</p>
+//   <p>Thanks for joining the waitlist! We'll let you know when we launch.</p>
+//   <p>- The Team 🚀</p>
+// `
